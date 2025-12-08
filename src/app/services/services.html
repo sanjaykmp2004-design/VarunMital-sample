@@ -1,0 +1,228 @@
+<section class="font" id="home">
+
+<nav class="navbar">
+  <div class="nav-container">
+
+    <div class="logo">
+      <a routerLink="/" class="logo-link">
+        <img src="assets/assurion final logo.svg" alt="hello">
+      </a>
+    </div>
+
+    <ul class="nav-menu">
+
+       <li class="nav-item">
+    <a routerLink="/" class="nav-link" [class.active]="activeLink === 'home'">Home</a>
+  </li>
+
+      <li class="nav-item">
+        <a (click)="scrollTo('about')"
+           class="nav-link"
+           [class.active]="activeLink === 'about'">About Us</a>
+      </li>
+
+      <li class="nav-item">
+        <a (click)="scrollTo('services')"
+           class="nav-link"
+           [class.active]="activeLink === 'services'">Services</a>
+      </li>
+
+      <li class="nav-item">
+        <a (click)="scrollTo('resources')"
+           class="nav-link"
+           [class.active]="activeLink === 'resources'">Resources</a>
+      </li>
+
+      <li class="nav-item">
+        <a (click)="scrollTo('contact')"
+           class="nav-link"
+           [class.active]="activeLink === 'contact'">Contact Us</a>
+      </li>
+
+    </ul>
+
+    <div class="nav-cta">
+      <button class="cta-button" (click)="scrollTo('contact')">Get In Touch</button>
+    </div>
+
+  </div>
+</nav>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="services-hero" id="services">
+  <div class="container h-100">
+    <div class="row h-100 align-items-center">
+      <div class="col-lg-6">
+        <div class="hero-content">
+          <h1 class="hero-title">Actuarial Services</h1>
+
+          <ul class="list">
+            <li><a (click)="scrollTo('home')">Home</a></li>
+            <li>></li>
+            <li>Services</li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-overlay"></div>
+</section>
+
+
+<!-- ================= EMPLOYEE BENEFITS ================= -->
+
+<section id="about" class="employee-benefits-section">
+  <div class="content-container">
+
+    <div class="text-content">
+      <h1>Employee Benefits</h1>
+      <p class="para">
+      We provide end-to-end actuarial support for employee benefit schemes, helping organizations meet statutory, accounting, and strategic requirements under frameworks such as Ind AS 19, IAS 19, AS 15, ASC 715 and US GAAP. Our valuations are designed to be audit-ready, compliant, and tailored to your company’s specific needs, whether for financial reporting, due diligence, or internal planning. With deep domain expertise, we assist companies & audit firms in accurately assessing and managing long-term employee liabilities. 
+      </p>
+    </div>
+
+    <div class="image-container">
+      <img src="/assets/employee benifit.svg" alt="">
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ================= SERVICES GRID ================= -->
+
+<section class="services-section" id="resources">
+  <div class="services-container">
+
+    <h2 class="serhead">Our Services Include:</h2>
+
+    <div class="services-grid">
+
+      <div class="service-card"><h3>Gratuity Valuations</h3>
+      <p>Actuarial reports for gratuity liabilities as per statutory and accounting standards. </p></div>
+      <div class="service-card"><h3>ESOP Valuations</h3>
+      <p>Fair value assessment of employee stock options using industry-standard models. </p></div>
+      <div class="service-card"><h3>Leave Encashment</h3><p>
+        Valuation of leave liabilities for accurate provisioning and reporting. 
+      </p></div>
+      <div class="service-card"><h3>Pension Valuations</h3><p>
+        Detailed pension liability valuations under relevant accounting standards. 
+      </p></div>
+      <div class="service-card"><h3>Pension Audit Support</h3><p>Collaboration with CA and audit firms for pension-related audits and disclosures. </p></div>
+      <div class="service-card"><h3>Mergers & Acquisitions</h3><p>Due diligence and liability assessments for employee benefits during transactions. </p></div>
+
+    </div>
+
+  </div>
+</section>
+<section class="insurance-section">
+  <div class="insurance-container">
+    
+    <div class="insurance-image">
+      <div class="image-hover-bg"></div>
+      <img src="\assets\insuarnce servies image.svg" alt="Insurance Image">
+    </div>
+
+    <div class="insurance-content">
+      <h2>Insurance Services</h2>
+      <p class="para">
+       We offer specialized actuarial and reporting solutions tailored to the evolving needs of the insurance industry, with a strong focus on regulatory compliance, financial reporting, and model transformation. Our team brings deep technical knowledge and hands-on experience in supporting insurers with financial reporting, new accounting standard implementation (LDTI, IFRS17 etc), actuarial modelling, and ongoing business-as-usual (BAU) reporting. Whether you're looking to build models from the ground up or streamline your existing processes, we provide practical, scalable support aligned with global standards. 
+      </p>
+    </div>
+
+  </div>
+</section>
+  <section class="services-section">
+  <h2 class="services-title">Our Services Include:</h2>
+
+  <div class="services-wrapper">
+
+    <!-- ===== ROW 1 : TWO BIG CARDS ===== -->
+    <div class="services-row row-1">
+      <div class="service-card big-card">
+        <img    src="\assets\first icon.svg" class="service-icon">
+        <h3>New Accounting Standard Implementation</h3>
+        <p class="para">Comprehensive support throughout the implementation lifecycle, including 
+           gap analysis, testing, and deployment.</p>
+      </div>
+
+      <div class="service-card big-card">
+        <img src="\assets\second icon.svg" class="service-icon">
+        <h3>Model Development</h3>
+        <p class="para">Design, build, validate, and maintain actuarial models using platforms such 
+           as GGY Axis, Prophet, Polysystem, and Python.</p>
+      </div>
+    </div>
+
+    <!-- ===== ROW 2 : THREE SMALL CARDS ===== -->
+    <div class="services-row row-2">
+      <div class="service-card small-card">
+        <img src="\assets\thirdicon.svg" class="service-icon">
+        <h3>Valuation Assistance</h3>
+        <p class="para">Support for quarterly and annual valuation and reporting cycles.</p>
+      </div>
+
+      <div class="service-card small-card">
+        <img src="\assets\fourthicon.svg" class="service-icon">
+        <h3>Financial Reporting</h3>
+        <p class="para">Prepare periodic reports, analyze results, and deliver insights.</p>
+      </div>
+
+      <div class="service-card small-card">
+        <img src="\assets\fifthicon.svg" class="service-icon">
+        <h3>Model Transformation</h3>
+        <p class="para">Modernize and migrate actuarial models for improved accuracy.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- ================= CONTACT ================= -->
+
+<div id="contact" class="section-wrapper">
+
+  <div class="info-block">
+      <h1>Ready to secure your business?</h1>
+    <p class="para">Partner with Assurion for reliable, compliant, and efficient services. Explore innovative financial solutions tailored for your business needs. Our expertise ensures compliance, reliability, and operational excellence daily.
+      </p><p class="para">
+ Connect with our team to discover smarter business growth opportunities.</p>
+  </div>
+
+  <div class="form-box">
+    <form (ngSubmit)="sendmessage()" #contactForm="ngForm">
+      <input type="text" placeholder="Name" [(ngModel)]="name" name="name" required />
+      <input type="email" placeholder="Email" [(ngModel)]="email" name="email" required />
+      <input type="text" placeholder="Company" [(ngModel)]="company" name="company" />
+      <textarea placeholder="Message" [(ngModel)]="message" name="message" required></textarea>
+      <button type="submit" [disabled]="contactForm.invalid">Send Message</button>
+    </form>
+  </div>
+
+</div>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="site-footer">
+
+  <div class="footer-links">
+    <a (click)="scrollTo('home')">Home</a>
+    <a (click)="scrollTo('about')">About</a>
+    <a (click)="scrollTo('services')">Services</a>
+    <a>Privacy Policy</a>
+  </div>
+
+  <hr>
+
+  <div class="footer-copy">© Powered by techysmiles</div>
+
+</footer>
+
+</section>

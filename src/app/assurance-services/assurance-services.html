@@ -1,0 +1,237 @@
+<section class="font">
+
+<nav class="navbar">
+  <div class="navbar-container">
+
+    <!-- Logo Section -->
+    <div class="navbar-brand">
+      <div class="logo">
+        <img src="assets/assurion final logo.svg" alt="">
+      </div>
+    </div>
+
+    <!-- Navigation Links -->
+    <ul class="navbar-nav">
+
+      <!-- HOME -->
+      <li class="nav-item">
+        <a routerLink="/" class="nav-link" [class.active]="activeLink === 'home'">
+          Home
+        </a>
+      </li>
+
+      <!-- ABOUT -->
+      <li class="nav-item">
+        <a (click)="scrollTo('about')" class="nav-link" [class.active]="activeLink === 'about'">
+          About Us
+        </a>
+      </li>
+
+      <!-- DROPDOWN MENU -->
+      <li class="nav-item dropdown"
+          (mouseenter)="onMouseEnterServices()"
+          (mouseleave)="onMouseLeaveServices()">
+
+        <a class="nav-link" [class.active]="activeLink === 'services'">
+          Services
+        </a>
+
+        <!-- DROPDOWN LIST -->
+        <ul class="dropdown-menu" [class.show]="dropdownOpen">
+          <li>
+            <a routerLink="/actuarial_services" (click)="setActive('services')">Actuarial Services</a>
+          </li>
+          <li>
+            <a routerLink="/assurance_services" (click)="setActive('services')">Assurance Services</a>
+          </li>
+          <li>
+            <a routerLink="/other_services" (click)="setActive('services')">Other Services</a>
+          </li>
+        </ul>
+
+      </li>
+
+      <!-- RESOURCES -->
+      <li class="nav-item">
+        <a (click)="scrollTo('resources')" class="nav-link" [class.active]="activeLink === 'resources'">
+          Resources
+        </a>
+      </li>
+
+      <!-- CONTACT -->
+      <li class="nav-item">
+        <a (click)="scrollTo('contact')" class="nav-link" [class.active]="activeLink === 'contact'">
+          Contact Us
+        </a>
+      </li>
+
+    </ul>
+
+    <!-- CTA Button -->
+    <div class="navbar-cta">
+      <button class="cta-button">Get In Touch</button>
+    </div>
+
+    <!-- Mobile Menu Toggle -->
+    <div class="mobile-toggle" (click)="toggleMobileMenu()">
+      <div class="hamburger" [class.active]="mobileMenuOpen">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" [class.active]="mobileMenuOpen">
+    <ul class="mobile-nav">
+      <li><a routerLink="/" (click)="closeMobileMenu()">Home</a></li>
+      <li><a (click)="scrollTo('about'); closeMobileMenu()">About Us</a></li>
+      <li><a (click)="scrollTo('services'); closeMobileMenu()">Services</a></li>
+      <li><a (click)="scrollTo('resources'); closeMobileMenu()">Resources</a></li>
+      <li><a (click)="scrollTo('contact'); closeMobileMenu()">Contact Us</a></li>
+      <li><button class="cta-button mobile-cta">Get In Touch</button></li>
+    </ul>
+  </div>
+
+</nav>
+
+<!-- HERO SECTION -->
+<section class="service-hero" id="home">
+  <div class="hero-overlay"></div>
+
+  <div class="service-hero-container">
+    <h1 class="service-title">Assurance Services</h1>
+
+    <div class="breadcrumb">
+      <a routerLink="/">Home</a>
+      <span>›</span>
+      <p>Assurance Services</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE SECTION -->
+<section class="service-section">
+
+  <!-- ROW 1 -->
+  <div class="service-row">
+    <div class="service-col image-col">
+      <img src="/assets/it audit image.svg" alt="Placeholder" class="service-img">
+    </div>
+
+    <div class="service-col text-col">
+      <h2>IT Audits & Attestation</h2>
+      <p class="para">
+       Our IT audit and attestation services are designed to evaluate the integrity, confidentiality, and availability of your information systems. We assess and verify the effectiveness of IT controls, ensuring alignment with industry standards and regulatory requirements. Our process enables clients to mitigate risks, improve operational efficiency, and maintain compliance with frameworks relevant to their sector.​ 
+      </p>
+    </div>
+  </div>
+
+  <!-- ROW 2 -->
+  <div class="service-row">
+    <div class="service1-col text-col">
+      <h2>SOC 1, SOC 2, and SOC 3 Reporting</h2>
+      <p class="para">System and Organization Controls (SOC) reports are a cornerstone of trust in today’s business environment. </p>
+      <ul class="para">
+        <li >SOC 1 reports provide assurance over controls related to financial reporting for service organizations</li>
+        <li>SOC 2 reports evaluate controls pertaining to security, availability, processing integrity, confidentiality, and privacy.</li>
+        <li>SOC 3 reports offer a concise, publicly available summary of an organization’s controls/li>
+      </ul>
+      <p class="para">Our team ensures the reporting process is seamless and transparent, enabling organizations to demonstrate compliance and reinforce confidence among clients and regulatory bodies.​ </p>
+    </div>
+
+    <div class="service1-col image1-col">
+      <div class="second_img">
+        <img src="/assets/soc image.svg" alt="SOC IMAGE" class="service-img">
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ISO SECTION -->
+<section class="iso-section" id="about">
+
+  <div class="iso-left">
+
+    <div class="iso-block">
+      <h2>ISO 27001 Audits</h2>
+      <p class="para">We assist organizations in achieving and maintaining ISO 27001 certification, the global standard for information security management systems (ISMS). Our services include readiness assessments, internal audits, and certification support, helping clients establish robust security governance and continuous improvement practices.​ </p>
+    </div>
+
+    <div class="iso-block">
+      <h2>Data Privacy Compliances (GDPR, HIPAA, HITRUST)</h2>
+      <p class="para">ata privacy regulations impose significant responsibilities on organizations. We provide expert guidance and auditing in compliance with GDPR, HIPAA, and HITRUST, helping businesses safeguard sensitive information and maintain trust with stakeholders. Our tailored assessments identify potential gaps and recommend actionable improvements to enable ongoing compliance and risk management.​ /p>
+    </div>
+
+  </div>
+
+  <div class="iso-right">
+    <div class="circle-wrapper">
+      <img src="/assets/audit img.svg" alt="Audit Illustration" class="circle-img">
+    </div>
+  </div>
+
+</section>
+
+<!-- BRAND LOGOS -->
+<section class="brands-section" id="resources">
+  <div class="social_logo">
+    <img src="/assets/logo social.svg" alt="Social Logos">
+  </div>
+</section>
+
+<!-- CONTACT Section -->
+<div class="section-wrapper" id="contact">
+
+  <div class="info-block">
+     <h1>Ready to secure your business?</h1>
+    <p class="para">Partner with Assurion for reliable, compliant, and efficient services. Explore innovative financial solutions tailored for your business needs. Our expertise ensures compliance, reliability, and operational excellence daily.
+      </p><p class="para">
+ Connect with our team to discover smarter business growth opportunities.</p>
+
+    <div class="brand-area">
+      <img src="/assets/assurion_logo.svg" alt="Shield Logo">
+    </div>
+
+    <div class="details-text">Phone,<br>Email,<br>Address</div>
+
+    <div class="icons-row">
+      <a><img src="/assets/facebook.png"></a>
+      <a><img src="/assets/linkedin.png"></a>
+      <a><img src="/assets/insta.png"></a>
+      <a><img src="/assets/youtube.png"></a>
+    </div>
+  </div>
+
+  <div class="form-box">
+    <form (ngSubmit)="sendmessage()" #contactForm="ngForm">
+      <input type="text" placeholder="Name" [(ngModel)]="name" name="name" required>
+      <input type="email" placeholder="Email" [(ngModel)]="email" name="email" required>
+      <input type="text" placeholder="Company" [(ngModel)]="company" name="company">
+      <textarea placeholder="Message" [(ngModel)]="message" name="message" required></textarea>
+      <button type="submit" [disabled]="contactForm.invalid">Send Message</button>
+    </form>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-links">
+    <a (click)="scrollTo('services')">home</a>
+    <a href="#">About us</a>
+      <a href="#">Services</a>
+    <a href="#">Privacy Policy</a>
+  </div>
+
+  <hr class="footer-divider">
+
+  <div class="footer-copy">
+    © Powered by techysmiles
+  </div>
+</footer>
+
+</section>

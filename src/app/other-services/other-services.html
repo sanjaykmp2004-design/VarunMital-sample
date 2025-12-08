@@ -1,0 +1,203 @@
+<nav class="navbar">
+  <div class="nav-container">
+
+    <!-- LOGO -->
+    <div class="logo">
+      <a routerLink="/" class="logo-link">
+        <img src="assets/assurion final logo.svg" alt="hello">
+      </a>
+    </div>
+
+   <ul class="nav-menu">
+  <li class="nav-item">
+    <a routerLink="/" class="nav-link" [class.active]="activeLink === 'home'">Home</a>
+  </li>
+
+  <li class="nav-item">
+    <a routerLink="/about" class="nav-link" [class.active]="activeLink === 'about'">About Us</a>
+  </li>
+
+  <li class="nav-item dropdown"
+      (mouseenter)="openDropdown()"
+      (mouseleave)="closeDropdownDelayed()">
+
+    <a class="nav-link" [class.active]="activeLink === 'services'">Services</a>
+
+    <ul class="dropdown-menu" [class.show]="dropdownOpen">
+      <li><a routerLink="/actuarial_services" (click)="selectService()">Actuarial Services</a></li>
+      <li><a routerLink="/assurance_services" (click)="selectService()">Assurance Services</a></li>
+      <li><a routerLink="/other_services" (click)="selectService()">Other Services</a></li>
+    </ul>
+  </li>
+
+  <li class="nav-item">
+    <a routerLink="/resources" class="nav-link" [class.active]="activeLink === 'resources'">Resources</a>
+  </li>
+
+  <!-- ⭐ FIXED SMOOTH SCROLL -->
+  <li class="nav-item">
+    <a (click)="scrollTo('contact')" class="nav-link" [class.active]="activeLink === 'contact'">Contact Us</a>
+  </li>
+</ul>
+
+
+    <!-- CTA -->
+    <div class="nav-cta">
+      <button class="cta-button">Get In Touch</button>
+    </div>
+
+  </div>
+</nav>
+
+<!-- ========================= -->
+<!-- YOUR PAGE CONTENT BELOW  -->
+<!-- (UNCHANGED!)             -->
+<!-- ========================= -->
+<section class="services-hero" id="services">
+  <div class="container h-100">
+    <div class="row h-100 align-items-center">
+      <div class="col-lg-6">
+        <div class="hero-content">
+          <h1 class="hero-title">Other Services</h1>
+
+          <ul class="list">
+            <li><a (click)="scrollTo('home')">Home</a></li>
+            <li>></li>
+            <li>Services</li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-overlay"></div>
+</section>
+   <section class="hero">
+    
+   </section>
+
+<section class="commit-section">
+  <div class="commit-left">
+    <img src="\assets\other_services.svg" class="commit-img">
+  </div>
+  <div class="commit-right">
+    <h2>Our Commitment</h2>
+    <p class="para">Assurion is dedicated to delivering solutions tailored to each client’s needs. Through a combination of technical excellence, industry experience, and a rigorous approach, we help organizations meet their objectives and strengthen their compliance posture. Partner with us for audit and assurance services that uphold integrity, transparency, and business resilience </p>
+  </div>
+</section>
+
+<section class="tax-section">
+  <div class="tax-top">
+    <div class="tax-left">
+      <h2>US Accounting,<br> Bookkeeping, and Taxation</h2>
+      <p class="para">We deliver end-to-end accounting and bookkeeping services tailored to U.S. regulatory standards. Our tax advisory team manages corporate and individual tax planning, preparation, and compliance with precision and confidentiality. </p>
+    </div>
+
+    <div class="tax-right">
+      <img src="\assets\accounting.svg" class="tax-img">
+    </div>
+  </div>
+
+  <div class="icons">
+    <h3 class="tax-heading">Key services:</h3>
+
+    <div class="tax-services-row">
+      <div class="tax-item">
+        <img src="\assets\icon1.svg" class="icon">
+        <p>Financial accounting<br>and reporting</p>
+      </div>
+
+      <div class="tax-item">
+        <img src="\assets\icon2.svg" class="icon">
+        <p>Bookkeeping and<br>payroll processing</p>
+      </div>
+
+      <div class="tax-item">
+        <img src="\assets\icon3.svg" class="icon">
+        <p>Federal and state<br>tax filing</p>
+      </div>
+
+      <div class="tax-item">
+        <img src="\assets\icon4.svg" class="icon">
+        <p>Tax planning<br>and advisory</p>
+      </div>
+
+      <div class="tax-item">
+        <img src="\assets\icon5.svg" class="icon">
+        <p>US Tax and Financial<br>Statement Audits</p>
+      </div>
+    </div>
+
+    <p  class="para">Our audit services provide independent and objective assurance on financial statements and tax compliance. We help organizations uphold transparency, strengthen internal controls, and meet U.S. GAAP requirements. </p>
+
+    <h3 class="tax-heading">Key services:</h3>
+
+    <div class="tax-services-row second">
+      <div class="tax-item">
+        <img src="\assets\icon6.svg" class="icon">
+        <p>Financial statement<br>audits and reviews</p>
+      </div>
+
+      <div class="tax-item">
+        <img src="\assets\icon7.svg" class="icon">
+        <p>Internal control<br>evaluation</p>
+      </div>
+
+      <div class="tax-item">
+        <img src="\assets\icon8.svg" class="icon">
+        <p>Tax audit<br>representation</p>
+      </div>
+
+      <div class="tax-item">
+        <img src="\assets\icon9.svg" class="icon">
+        <p>Regulatory<br>compliance audits</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="brands-section">
+  <div class="social_logo">
+    <img src="\assets\logo social.svg">
+  </div>
+</section>
+
+<div class="section-wrapper" id="contact">
+  <div class="info-block">
+     <h1>Ready to secure your business?</h1>
+    <p class="para">Partner with Assurion for reliable, compliant, and efficient services. Explore innovative financial solutions tailored for your business needs. Our expertise ensures compliance, reliability, and operational excellence daily.
+      </p><p class="para">
+ Connect with our team to discover smarter business growth opportunities.</p>
+    <div class="brand-area"><img src="/assets/assurion_logo.svg"></div>
+    <div class="details-text">Phone,<br>Email,<br>Address</div>
+
+    <div class="icons-row">
+      <a><img src="/assets/facebook.png"></a>
+      <a><img src="/assets/linkedin.png"></a>
+      <a><img src="/assets/insta.png"></a>
+      <a><img src="/assets/youtube.png"></a>
+    </div>
+  </div>
+
+  <div class="form-box">
+    <form (ngSubmit)="sendmessage()" #contactForm="ngForm">
+      <input type="text" placeholder="Name" [(ngModel)]="name" name="name" required />
+      <input type="email" placeholder="Email" [(ngModel)]="email" name="email" required />
+      <input type="text" placeholder="Company" [(ngModel)]="company" name="company" />
+      <textarea placeholder="Message" [(ngModel)]="message" name="message" required></textarea>
+      <button type="submit" [disabled]="contactForm.invalid">Send Message</button>
+    </form>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-links">
+    <a routerLink="/">Home</a>
+    <a routerLink="/about">About Us</a>
+    <a routerLink="/other_services">Services</a>
+    <a href="#">Privacy Policy</a>
+  </div>
+  <hr class="footer-divider">
+  <div class="footer-copy">© Powered by techysmiles</div>
+</footer>
