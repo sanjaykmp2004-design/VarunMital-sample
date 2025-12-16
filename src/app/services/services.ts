@@ -17,6 +17,8 @@ import { RouterLink } from '@angular/router';
   styleUrls: ['./services.css']
 })
 export class Services {
+   dropdownOpen: boolean = false;
+  private dropdownTimeout: any = null;
 
   activeLink: string = 'home';
   mobileMenuOpen = false;
@@ -39,7 +41,7 @@ export class Services {
   const startPosition = window.pageYOffset;
   const distance = targetPosition - startPosition;
 
-  const duration = 900; // ⬅️ increase value for slower scroll (1200 = slower, 1500 = very slow)
+  const duration = 900; 
   let start: number | null = null;
 
   const animation = (currentTime: number) => {
@@ -66,6 +68,38 @@ easeInOut(t: number, b: number, c: number, d: number) {
   return (-c / 2) * (t * (t - 2) - 1) + b;
 }
 
+onMouseEnterServices() {
+    this.clearDropdownTimer();
+    this.dropdownOpen = true;
+  }
+
+  onMouseLeaveServices() {
+    this.dropdownTimeout = setTimeout(() => {
+      this.dropdownOpen = false;
+    }, 1000);
+  }
+
+  clearDropdownTimer() {
+    if (this.dropdownTimeout) {
+      clearTimeout(this.dropdownTimeout);
+      this.dropdownTimeout = null;
+    }
+  }
+  setActive(link: string) {
+    this.activeLink = link;
+    this.dropdownOpen = false;
+    this.clearDropdownTimer();
+  }
+
+  /* ========= MOBILE MENU ========= */
+
+  toggleMobileMenu() {
+    this.mobileMenuOpen = !this.mobileMenuOpen;
+  }
+
+  closeMobileMenu() {
+    this.mobileMenuOpen = false;
+  }
 
   sendmessage() {
     if (!this.name || !this.email || !this.message) {
@@ -89,4 +123,5 @@ easeInOut(t: number, b: number, c: number, d: number) {
       error: () => alert('Failed ❌')
     });
   }
+  
 }

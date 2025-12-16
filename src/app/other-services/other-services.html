@@ -24,7 +24,7 @@
     <a class="nav-link" [class.active]="activeLink === 'services'">Services</a>
 
     <ul class="dropdown-menu" [class.show]="dropdownOpen">
-      <li><a routerLink="/actuarial_services" (click)="selectService()">Actuarial Services</a></li>
+      <li><a routerLink="/services" (click)="selectService()">Actuarial Services</a></li>
       <li><a routerLink="/assurance_services" (click)="selectService()">Assurance Services</a></li>
       <li><a routerLink="/other_services" (click)="selectService()">Other Services</a></li>
     </ul>
@@ -118,10 +118,7 @@
         <p>Federal and state<br>tax filing</p>
       </div>
 
-      <div class="tax-item">
-        <img src="\assets\icon4.svg" class="icon">
-        <p>Tax planning<br>and advisory</p>
-      </div>
+     
 
       <div class="tax-item">
         <img src="\assets\icon5.svg" class="icon">
@@ -149,10 +146,7 @@
         <p>Tax audit<br>representation</p>
       </div>
 
-      <div class="tax-item">
-        <img src="\assets\icon9.svg" class="icon">
-        <p>Regulatory<br>compliance audits</p>
-      </div>
+     
     </div>
   </div>
 </section>
@@ -166,18 +160,21 @@
 <div class="section-wrapper" id="contact">
   <div class="info-block">
      <h1>Ready to secure your business?</h1>
-    <p class="para">Partner with Assurion for reliable, compliant, and efficient services. Explore innovative financial solutions tailored for your business needs. Our expertise ensures compliance, reliability, and operational excellence daily.
+     <p class="para">Partner with Assurion for reliable, compliant, and efficient services. <br> Explore innovative financial solutions tailored for your business needs. <br>Our expertise ensures compliance, reliability, and operational excellence daily.
       </p><p class="para">
  Connect with our team to discover smarter business growth opportunities.</p>
     <div class="brand-area"><img src="/assets/assurion_logo.svg"></div>
-    <div class="details-text">Phone,<br>Email,<br>Address</div>
-
-    <div class="icons-row">
-      <a><img src="/assets/facebook.png"></a>
-      <a><img src="/assets/linkedin.png"></a>
-      <a><img src="/assets/insta.png"></a>
-      <a><img src="/assets/youtube.png"></a>
+  <div class="country-bar">
+    <div class="country">
+      <img src="assets/indianflag.svg" alt="India">
+      <span>India</span>
     </div>
+
+    <div class="country">
+      <img src="assets/usa flag.svg" alt="USA">
+      <span>USA</span>
+    </div>
+  </div>
   </div>
 
   <div class="form-box">

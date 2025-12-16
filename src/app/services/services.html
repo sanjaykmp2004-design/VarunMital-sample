@@ -21,10 +21,31 @@
            [class.active]="activeLink === 'about'">About Us</a>
       </li>
 
-      <li class="nav-item">
-        <a (click)="scrollTo('services')"
-           class="nav-link"
-           [class.active]="activeLink === 'services'">Services</a>
+      <li class="nav-item dropdown"
+          (mouseenter)="onMouseEnterServices()"
+          (mouseleave)="onMouseLeaveServices()">
+
+        <a class="nav-link" [class.active]="activeLink === 'services'">
+          Services
+        </a>
+
+        <ul class="dropdown-menu" [class.show]="dropdownOpen"
+            (mouseenter)="onMouseEnterServices()"
+            (mouseleave)="onMouseLeaveServices()">
+
+          <li>
+            <a routerLink="/services" (click)="setActive('services')">Actuarial Services</a>
+          </li>
+
+          <li>
+            <a routerLink="/assurance_services" (click)="setActive('services')">Assurance Services</a>
+          </li>
+
+          <li>
+            <a routerLink="/other_services" (click)="setActive('services')">Other Services</a>
+          </li>
+
+        </ul>
       </li>
 
       <li class="nav-item">
@@ -190,9 +211,21 @@
 
   <div class="info-block">
       <h1>Ready to secure your business?</h1>
-    <p class="para">Partner with Assurion for reliable, compliant, and efficient services. Explore innovative financial solutions tailored for your business needs. Our expertise ensures compliance, reliability, and operational excellence daily.
+      <p class="para">Partner with Assurion for reliable, compliant, and efficient services. <br> Explore innovative financial solutions tailored for your business needs. <br>Our expertise ensures compliance, reliability, and operational excellence daily.
       </p><p class="para">
  Connect with our team to discover smarter business growth opportunities.</p>
+ <div class="brand-area"><img src="/assets/assurion_logo.svg"></div>
+  <div class="country-bar">
+    <div class="country">
+      <img src="assets/indianflag.svg" alt="India">
+      <span>India</span>
+    </div>
+
+    <div class="country">
+      <img src="assets/usa flag.svg" alt="USA">
+      <span>USA</span>
+    </div>
+  </div>
   </div>
 
   <div class="form-box">

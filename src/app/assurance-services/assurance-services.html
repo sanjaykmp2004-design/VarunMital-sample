@@ -39,7 +39,7 @@
         <!-- DROPDOWN LIST -->
         <ul class="dropdown-menu" [class.show]="dropdownOpen">
           <li>
-            <a routerLink="/actuarial_services" (click)="setActive('services')">Actuarial Services</a>
+            <a routerLink="/services" (click)="setActive('services')">Actuarial Services</a>
           </li>
           <li>
             <a routerLink="/assurance_services" (click)="setActive('services')">Assurance Services</a>
@@ -131,7 +131,8 @@
 
   <!-- ROW 2 -->
   <div class="service-row">
-    <div class="service1-col text-col">
+    <div class="service1-col text-col" >
+      <div id="s1">
       <h2>SOC 1, SOC 2, and SOC 3 Reporting</h2>
       <p class="para">System and Organization Controls (SOC) reports are a cornerstone of trust in today’s business environment. </p>
       <ul class="para">
@@ -139,6 +140,7 @@
         <li>SOC 2 reports evaluate controls pertaining to security, availability, processing integrity, confidentiality, and privacy.</li>
         <li>SOC 3 reports offer a concise, publicly available summary of an organization’s controls/li>
       </ul>
+      </div>
       <p class="para">Our team ensures the reporting process is seamless and transparent, enabling organizations to demonstrate compliance and reinforce confidence among clients and regulatory bodies.​ </p>
     </div>
 
@@ -188,7 +190,7 @@
 
   <div class="info-block">
      <h1>Ready to secure your business?</h1>
-    <p class="para">Partner with Assurion for reliable, compliant, and efficient services. Explore innovative financial solutions tailored for your business needs. Our expertise ensures compliance, reliability, and operational excellence daily.
+     <p class="para">Partner with Assurion for reliable, compliant, and efficient services. <br> Explore innovative financial solutions tailored for your business needs. <br>Our expertise ensures compliance, reliability, and operational excellence daily.
       </p><p class="para">
  Connect with our team to discover smarter business growth opportunities.</p>
 
@@ -196,14 +198,17 @@
       <img src="/assets/assurion_logo.svg" alt="Shield Logo">
     </div>
 
-    <div class="details-text">Phone,<br>Email,<br>Address</div>
-
-    <div class="icons-row">
-      <a><img src="/assets/facebook.png"></a>
-      <a><img src="/assets/linkedin.png"></a>
-      <a><img src="/assets/insta.png"></a>
-      <a><img src="/assets/youtube.png"></a>
+    <div class="country-bar">
+    <div class="country">
+      <img src="assets/indianflag.svg" alt="India">
+      <span>India</span>
     </div>
+
+    <div class="country">
+      <img src="assets/usa flag.svg" alt="USA">
+      <span>USA</span>
+    </div>
+  </div>
   </div>
 
   <div class="form-box">
