@@ -9,11 +9,11 @@
       </a>
     </div>
 
+    <!-- Desktop Navigation -->
     <ul class="nav-menu">
-
-       <li class="nav-item">
-    <a routerLink="/" class="nav-link" [class.active]="activeLink === 'home'">Home</a>
-  </li>
+      <li class="nav-item">
+        <a routerLink="/" class="nav-link" [class.active]="activeLink === 'home'">Home</a>
+      </li>
 
       <li class="nav-item">
         <a (click)="scrollTo('about')"
@@ -66,7 +66,42 @@
       <button class="cta-button" (click)="scrollTo('contact')">Get In Touch</button>
     </div>
 
+    <!-- Mobile Menu Toggle -->
+    <div class="mobile-toggle" (click)="toggleMobileMenu()">
+      <div class="hamburger" [class.active]="mobileMenuOpen">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
   </div>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" [class.active]="mobileMenuOpen">
+    <ul class="mobile-nav">
+      <li><a routerLink="/" (click)="closeMobileMenu()">Home</a></li>
+      <li><a (click)="scrollTo('about')">About Us</a></li>
+      
+      <!-- Mobile Services Dropdown -->
+      <li class="mobile-dropdown">
+        <div class="mobile-services-header" (click)="toggleMobileServices()">
+          <span>Services</span>
+          <span class="arrow-icon" [class.rotate]="mobileServicesOpen">▼</span>
+        </div>
+        <ul class="mobile-submenu" [class.show]="mobileServicesOpen">
+          <li><a routerLink="/services" (click)="closeMobileMenu()">Actuarial Services</a></li>
+          <li><a routerLink="/assurance_services" (click)="closeMobileMenu()">Assurance Services</a></li>
+          <li><a routerLink="/other_services" (click)="closeMobileMenu()">Other Services</a></li>
+        </ul>
+      </li>
+      
+      <li><a (click)="scrollTo('resources')">Resources</a></li>
+      <li><a (click)="scrollTo('contact')">Contact Us</a></li>
+      <li><button class="cta-button mobile-cta" (click)="scrollTo('contact')">Get In Touch</button></li>
+    </ul>
+  </div>
+
 </nav>
 
 
@@ -102,7 +137,7 @@
     <div class="text-content">
       <h1>Employee Benefits</h1>
       <p class="para">
-      We provide end-to-end actuarial support for employee benefit schemes, helping organizations meet statutory, accounting, and strategic requirements under frameworks such as Ind AS 19, IAS 19, AS 15, ASC 715 and US GAAP. Our valuations are designed to be audit-ready, compliant, and tailored to your company’s specific needs, whether for financial reporting, due diligence, or internal planning. With deep domain expertise, we assist companies & audit firms in accurately assessing and managing long-term employee liabilities. 
+      We provide end-to-end actuarial support for employee benefit schemes, helping organizations meet statutory, accounting, and strategic requirements under frameworks such as Ind AS 19, IAS 19, AS 15, ASC 715 and US GAAP. Our valuations are designed to be audit-ready, compliant, and tailored to your company's specific needs, whether for financial reporting, due diligence, or internal planning. With deep domain expertise, we assist companies & audit firms in accurately assessing and managing long-term employee liabilities. 
       </p>
     </div>
 
@@ -124,22 +159,23 @@
     <div class="services-grid">
 
       <div class="service-card"><h3>Gratuity Valuations</h3>
-      <p>Actuarial reports for gratuity liabilities as per statutory and accounting standards. </p></div>
+      <p>Actuarial reports for gratuity liabilities as per statutory and accounting standards. </p></div>
       <div class="service-card"><h3>ESOP Valuations</h3>
-      <p>Fair value assessment of employee stock options using industry-standard models. </p></div>
+      <p>Fair value assessment of employee stock options using industry-standard models. </p></div>
       <div class="service-card"><h3>Leave Encashment</h3><p>
-        Valuation of leave liabilities for accurate provisioning and reporting. 
+        Valuation of leave liabilities for accurate provisioning and reporting. 
       </p></div>
       <div class="service-card"><h3>Pension Valuations</h3><p>
-        Detailed pension liability valuations under relevant accounting standards. 
+        Detailed pension liability valuations under relevant accounting standards. 
       </p></div>
-      <div class="service-card"><h3>Pension Audit Support</h3><p>Collaboration with CA and audit firms for pension-related audits and disclosures. </p></div>
-      <div class="service-card"><h3>Mergers & Acquisitions</h3><p>Due diligence and liability assessments for employee benefits during transactions. </p></div>
+      <div class="service-card"><h3>Pension Audit Support</h3><p>Collaboration with CA and audit firms for pension-related audits and disclosures. </p></div>
+      <div class="service-card"><h3>Mergers & Acquisitions</h3><p>Due diligence and liability assessments for employee benefits during transactions. </p></div>
 
     </div>
 
   </div>
 </section>
+
 <section class="insurance-section">
   <div class="insurance-container">
     
@@ -151,13 +187,14 @@
     <div class="insurance-content">
       <h2>Insurance Services</h2>
       <p class="para">
-       We offer specialized actuarial and reporting solutions tailored to the evolving needs of the insurance industry, with a strong focus on regulatory compliance, financial reporting, and model transformation. Our team brings deep technical knowledge and hands-on experience in supporting insurers with financial reporting, new accounting standard implementation (LDTI, IFRS17 etc), actuarial modelling, and ongoing business-as-usual (BAU) reporting. Whether you're looking to build models from the ground up or streamline your existing processes, we provide practical, scalable support aligned with global standards. 
+       We offer specialized actuarial and reporting solutions tailored to the evolving needs of the insurance industry, with a strong focus on regulatory compliance, financial reporting, and model transformation. Our team brings deep technical knowledge and hands-on experience in supporting insurers with financial reporting, new accounting standard implementation (LDTI, IFRS17 etc), actuarial modelling, and ongoing business-as-usual (BAU) reporting. Whether you're looking to build models from the ground up or streamline your existing processes, we provide practical, scalable support aligned with global standards. 
       </p>
     </div>
 
   </div>
 </section>
-  <section class="services-section">
+
+<section class="services-section">
   <h2 class="services-title">Our Services Include:</h2>
 
   <div class="services-wrapper">
@@ -165,7 +202,7 @@
     <!-- ===== ROW 1 : TWO BIG CARDS ===== -->
     <div class="services-row row-1">
       <div class="service-card big-card">
-        <img    src="\assets\first icon.svg" class="service-icon">
+        <img src="\assets\first icon.svg" class="service-icon">
         <h3>New Accounting Standard Implementation</h3>
         <p class="para">Comprehensive support throughout the implementation lifecycle, including 
            gap analysis, testing, and deployment.</p>
@@ -214,18 +251,27 @@
       <p class="para">Partner with Assurion for reliable, compliant, and efficient services. <br> Explore innovative financial solutions tailored for your business needs. <br>Our expertise ensures compliance, reliability, and operational excellence daily.
       </p><p class="para">
  Connect with our team to discover smarter business growth opportunities.</p>
- <div class="brand-area"><img src="/assets/assurion_logo.svg"></div>
-  <div class="country-bar">
-    <div class="country">
-      <img src="assets/indianflag.svg" alt="India">
-      <span>India</span>
+ <div class="brand-area"><img src="assets/assurion final logo.svg"></div>
+ <div class="brand-area">
+      <img src="assets/assurion final logo.svg">
     </div>
+    <br>
+    <br>  
+    
+    <span style="color: white;">Phone &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; + 1 307 6838062</span>
+        <div class="country-bar">
+      <div class="country">
+        <span>Address &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span> 
+        <img src="assets/indianflag.svg">
+        <span > New Delhi ,<br> India</span>
+        
+      </div>
 
-    <div class="country">
-      <img src="assets/usa flag.svg" alt="USA">
-      <span>USA</span>
+      <div class="country">
+        <img src="assets/usa flag.svg">
+        <span>Wyoming, <br> United   States</span>
+      </div>
     </div>
-  </div>
   </div>
 
   <div class="form-box">

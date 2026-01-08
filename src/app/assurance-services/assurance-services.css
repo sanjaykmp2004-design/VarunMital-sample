@@ -25,3 +25,225 @@
   object-fit: cover;
   border: 3px solid white;
 }
+/* ===============================
+   NAVBAR RESPONSIVE
+   =============================== */
+
+/* Hide mobile elements on desktop */
+.mobile-toggle,
+.mobile-menu {
+  display: none;
+}
+
+/* Prevent horizontal scroll */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Hamburger icon styling */
+.hamburger {
+  width: 28px;
+  height: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 100%;
+  height: 3px;
+  background: #fff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* ===============================
+   MOBILE / TABLET VIEW
+   =============================== */
+@media (max-width: 768px) {
+
+  /* Hide desktop nav + CTA */
+  .navbar-nav,
+  .navbar-cta {
+    display: none;
+  }
+
+  /* Show hamburger */
+  .mobile-toggle {
+    display: block;
+  }
+
+  /* Adjust navbar container */
+  .navbar-container {
+    padding: 1rem;
+  }
+
+  /* Logo adjustments */
+  .navbar-brand {
+    margin-left: 10px !important;
+  }
+
+  .logo img {
+    width: 120px;
+    height: auto;
+  }
+
+  /* Mobile menu container */
+  .mobile-menu {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  }
+
+  .mobile-menu.active {
+    max-height: 600px;
+  }
+
+  /* Mobile nav links */
+  .mobile-nav {
+    list-style: none;
+    padding: 1.5rem 2rem 2rem;
+    margin: 0;
+  }
+
+  .mobile-nav li {
+    margin-bottom: 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .mobile-nav li:last-child {
+    border-bottom: none;
+  }
+
+  .mobile-nav a {
+    font-size: 1.05rem;
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 1rem 0;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-nav a:hover {
+    padding-left: 10px;
+    color: #60a5fa;
+  }
+
+  /* Mobile Services Dropdown */
+  .mobile-dropdown {
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .mobile-services-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    cursor: pointer;
+    color: #fff;
+    font-size: 1.05rem;
+    transition: all 0.3s ease;
+    user-select: none;
+  }
+
+  .mobile-services-header:hover {
+    padding-left: 10px;
+    color: #60a5fa;
+  }
+
+  .arrow-icon {
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+    display: inline-block;
+  }
+
+  .arrow-icon.rotate {
+    transform: rotate(180deg);
+  }
+
+  .mobile-submenu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    padding-left: 0;
+    list-style: none;
+    margin: 0;
+    background: rgba(0,0,0,0.1);
+    border-radius: 8px;
+  }
+
+  .mobile-submenu.show {
+    max-height: 400px;
+    padding: 0.5rem 0;
+    margin-bottom: 0.5rem;
+  }
+
+  .mobile-submenu li {
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+
+  .mobile-submenu li a {
+    font-size: 0.95rem;
+    padding: 0.75rem 1.5rem;
+    color: rgba(255,255,255,0.9);
+    display: block;
+  }
+
+  .mobile-submenu li a:hover {
+    color: #60a5fa;
+    background: rgba(255,255,255,0.05);
+    padding-left: 2rem;
+  }
+
+  /* Mobile CTA button */
+  .mobile-cta {
+    width: 100%;
+    margin-top: 1rem;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #fff;
+    padding: 0.75rem;
+    height: auto;
+  }
+
+  .mobile-cta:hover {
+    background: rgba(255,255,255,0.25);
+  }
+
+  /* Service hero adjustments */
+  .service-hero {
+    height: 300px;
+  }
+
+  .service-title {
+    font-size: 1.8rem;
+    margin-right: 0;
+    text-align: center;
+  }
+
+  .breadcrumb {
+    justify-content: center;
+    margin-top: 40px;
+  }
+}

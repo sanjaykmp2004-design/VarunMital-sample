@@ -8,50 +8,83 @@
       </a>
     </div>
 
-   <ul class="nav-menu">
-  <li class="nav-item">
-    <a routerLink="/" class="nav-link" [class.active]="activeLink === 'home'">Home</a>
-  </li>
+    <!-- Desktop Navigation -->
+    <ul class="nav-menu">
+      <li class="nav-item">
+        <a routerLink="/" class="nav-link" [class.active]="activeLink === 'home'">Home</a>
+      </li>
 
-  <li class="nav-item">
-    <a routerLink="/about" class="nav-link" [class.active]="activeLink === 'about'">About Us</a>
-  </li>
+      <li class="nav-item">
+        <a routerLink="/about" class="nav-link" [class.active]="activeLink === 'about'">About Us</a>
+      </li>
 
-  <li class="nav-item dropdown"
-      (mouseenter)="openDropdown()"
-      (mouseleave)="closeDropdownDelayed()">
+      <li class="nav-item dropdown"
+          (mouseenter)="openDropdown()"
+          (mouseleave)="closeDropdownDelayed()">
 
-    <a class="nav-link" [class.active]="activeLink === 'services'">Services</a>
+        <a class="nav-link" [class.active]="activeLink === 'services'">Services</a>
 
-    <ul class="dropdown-menu" [class.show]="dropdownOpen">
-      <li><a routerLink="/services" (click)="selectService()">Actuarial Services</a></li>
-      <li><a routerLink="/assurance_services" (click)="selectService()">Assurance Services</a></li>
-      <li><a routerLink="/other_services" (click)="selectService()">Other Services</a></li>
+        <ul class="dropdown-menu" [class.show]="dropdownOpen">
+          <li><a routerLink="/services" (click)="selectService()">Actuarial Services</a></li>
+          <li><a routerLink="/assurance_services" (click)="selectService()">Assurance Services</a></li>
+          <li><a routerLink="/other_services" (click)="selectService()">Other Services</a></li>
+        </ul>
+      </li>
+
+      <li class="nav-item">
+        <a routerLink="/resources" class="nav-link" [class.active]="activeLink === 'resources'">Resources</a>
+      </li>
+
+      <li class="nav-item">
+        <a (click)="scrollTo('contact')" class="nav-link" [class.active]="activeLink === 'contact'">Contact Us</a>
+      </li>
     </ul>
-  </li>
-
-  <li class="nav-item">
-    <a routerLink="/resources" class="nav-link" [class.active]="activeLink === 'resources'">Resources</a>
-  </li>
-
-  <!-- ⭐ FIXED SMOOTH SCROLL -->
-  <li class="nav-item">
-    <a (click)="scrollTo('contact')" class="nav-link" [class.active]="activeLink === 'contact'">Contact Us</a>
-  </li>
-</ul>
-
 
     <!-- CTA -->
     <div class="nav-cta">
-      <button class="cta-button">Get In Touch</button>
+      <button class="cta-button" (click)="scrollTo('contact')">Get In Touch</button>
+    </div>
+
+    <!-- Mobile Menu Toggle -->
+    <div class="mobile-toggle" (click)="toggleMobileMenu()">
+      <div class="hamburger" [class.active]="mobileMenuOpen">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
 
   </div>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" [class.active]="mobileMenuOpen">
+    <ul class="mobile-nav">
+      <li><a routerLink="/" (click)="closeMobileMenu()">Home</a></li>
+      <li><a routerLink="/about" (click)="closeMobileMenu()">About Us</a></li>
+      
+      <!-- Mobile Services Dropdown -->
+      <li class="mobile-dropdown">
+        <div class="mobile-services-header" (click)="toggleMobileServices()">
+          <span>Services</span>
+          <span class="arrow-icon" [class.rotate]="mobileServicesOpen">▼</span>
+        </div>
+        <ul class="mobile-submenu" [class.show]="mobileServicesOpen">
+          <li><a routerLink="/services" (click)="closeMobileMenu()">Actuarial Services</a></li>
+          <li><a routerLink="/assurance_services" (click)="closeMobileMenu()">Assurance Services</a></li>
+          <li><a routerLink="/other_services" (click)="closeMobileMenu()">Other Services</a></li>
+        </ul>
+      </li>
+      
+      <li><a routerLink="/resources" (click)="closeMobileMenu()">Resources</a></li>
+      <li><a (click)="scrollTo('contact')">Contact Us</a></li>
+      <li><button class="cta-button mobile-cta" (click)="scrollTo('contact')">Get In Touch</button></li>
+    </ul>
+  </div>
+
 </nav>
 
 <!-- ========================= -->
 <!-- YOUR PAGE CONTENT BELOW  -->
-<!-- (UNCHANGED!)             -->
 <!-- ========================= -->
 <section class="services-hero" id="services">
   <div class="container h-100">
@@ -61,7 +94,7 @@
           <h1 class="hero-title">Other Services</h1>
 
           <ul class="list">
-            <li><a (click)="scrollTo('home')">Home</a></li>
+            <li>home</li>
             <li>></li>
             <li>Services</li>
           </ul>
@@ -73,9 +106,8 @@
 
   <div class="hero-overlay"></div>
 </section>
-   <section class="hero">
-    
-   </section>
+
+<section class="hero"></section>
 
 <section class="commit-section">
   <div class="commit-left">
@@ -83,7 +115,7 @@
   </div>
   <div class="commit-right">
     <h2>Our Commitment</h2>
-    <p class="para">Assurion is dedicated to delivering solutions tailored to each client’s needs. Through a combination of technical excellence, industry experience, and a rigorous approach, we help organizations meet their objectives and strengthen their compliance posture. Partner with us for audit and assurance services that uphold integrity, transparency, and business resilience </p>
+    <p class="para">Assurion is dedicated to delivering solutions tailored to each client's needs. Through a combination of technical excellence, industry experience, and a rigorous approach, we help organizations meet their objectives and strengthen their compliance posture. Partner with us for audit and assurance services that uphold integrity, transparency, and business resilience </p>
   </div>
 </section>
 
@@ -91,7 +123,7 @@
   <div class="tax-top">
     <div class="tax-left">
       <h2>US Accounting,<br> Bookkeeping, and Taxation</h2>
-      <p class="para">We deliver end-to-end accounting and bookkeeping services tailored to U.S. regulatory standards. Our tax advisory team manages corporate and individual tax planning, preparation, and compliance with precision and confidentiality. </p>
+      <p class="para">We deliver end-to-end accounting and bookkeeping services tailored to U.S. regulatory standards. Our tax advisory team manages corporate and individual tax planning, preparation, and compliance with precision and confidentiality. </p>
     </div>
 
     <div class="tax-right">
@@ -118,15 +150,13 @@
         <p>Federal and state<br>tax filing</p>
       </div>
 
-     
-
       <div class="tax-item">
         <img src="\assets\icon5.svg" class="icon">
         <p>US Tax and Financial<br>Statement Audits</p>
       </div>
     </div>
 
-    <p  class="para">Our audit services provide independent and objective assurance on financial statements and tax compliance. We help organizations uphold transparency, strengthen internal controls, and meet U.S. GAAP requirements. </p>
+    <p class="para">Our audit services provide independent and objective assurance on financial statements and tax compliance. We help organizations uphold transparency, strengthen internal controls, and meet U.S. GAAP requirements. </p>
 
     <h3 class="tax-heading">Key services:</h3>
 
@@ -145,15 +175,7 @@
         <img src="\assets\icon8.svg" class="icon">
         <p>Tax audit<br>representation</p>
       </div>
-
-     
     </div>
-  </div>
-</section>
-
-<section class="brands-section">
-  <div class="social_logo">
-    <img src="\assets\logo social.svg">
   </div>
 </section>
 
@@ -163,20 +185,28 @@
      <p class="para">Partner with Assurion for reliable, compliant, and efficient services. <br> Explore innovative financial solutions tailored for your business needs. <br>Our expertise ensures compliance, reliability, and operational excellence daily.
       </p><p class="para">
  Connect with our team to discover smarter business growth opportunities.</p>
-    <div class="brand-area"><img src="/assets/assurion_logo.svg"></div>
-  <div class="country-bar">
-    <div class="country">
-      <img src="assets/indianflag.svg" alt="India">
-      <span>India</span>
+    <div class="brand-area"><img src="assets/assurion final logo.svg"></div>
+  <div class="brand-area">
+      <img src="assets/assurion final logo.svg">
     </div>
+    <br>
+    <br>  
+    
+    <span style="color: white;">Phone &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; + 1 307 6838062</span>
+        <div class="country-bar">
+      <div class="country">
+        <span>Address &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span> 
+        <img src="assets/indianflag.svg">
+        <span > New Delhi ,<br> India</span>
+        
+      </div>
 
-    <div class="country">
-      <img src="assets/usa flag.svg" alt="USA">
-      <span>USA</span>
+      <div class="country">
+        <img src="assets/usa flag.svg">
+        <span>Wyoming, <br> United   States</span>
+      </div>
     </div>
   </div>
-  </div>
-
   <div class="form-box">
     <form (ngSubmit)="sendmessage()" #contactForm="ngForm">
       <input type="text" placeholder="Name" [(ngModel)]="name" name="name" required />

@@ -17,12 +17,18 @@ import { RouterLink } from '@angular/router';
   styleUrls: ['./services.css']
 })
 export class Services {
-   dropdownOpen: boolean = false;
+  // Desktop dropdown
+  dropdownOpen: boolean = false;
   private dropdownTimeout: any = null;
 
+  // Navigation
   activeLink: string = 'home';
-  mobileMenuOpen = false;
+  
+  // Mobile menu states
+  mobileMenuOpen: boolean = false;
+  mobileServicesOpen: boolean = false;
 
+  // Form fields
   name = '';
   email = '';
   company = '';
@@ -30,45 +36,42 @@ export class Services {
 
   constructor(private http: HttpClient) {}
 
-  // ✅ Smooth scroll function
- scrollTo(sectionId: string) {
-  const target = document.getElementById(sectionId);
-  if (!target) return;
+  /* ===========================
+       SMOOTH SCROLL
+  ============================*/
+  scrollTo(sectionId: string, duration: number = 600) {
+    const target = document.getElementById(sectionId);
+    if (!target) return;
 
-  this.activeLink = sectionId;
+    const start = window.pageYOffset;
+    const targetOffset = target.getBoundingClientRect().top;
+    const startTime = performance.now();
 
-  const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
-  const startPosition = window.pageYOffset;
-  const distance = targetPosition - startPosition;
+    const easeInOut = (t: number) =>
+      t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
 
-  const duration = 900; 
-  let start: number | null = null;
+    const animateScroll = (currentTime: number) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const ease = easeInOut(progress);
 
-  const animation = (currentTime: number) => {
-    if (start === null) start = currentTime;
+      window.scrollTo(0, start + targetOffset * ease);
 
-    const timeElapsed = currentTime - start;
-    const run = this.easeInOut(timeElapsed, startPosition, distance, duration);
+      if (progress < 1) {
+        requestAnimationFrame(animateScroll);
+      }
+    };
 
-    window.scrollTo(0, run);
+    requestAnimationFrame(animateScroll);
 
-    if (timeElapsed < duration) {
-      requestAnimationFrame(animation);
-    }
-  };
+    this.activeLink = sectionId;
+    this.closeMobileMenu();
+  }
 
-  requestAnimationFrame(animation);
-}
-
-// ✅ Smooth animation formula
-easeInOut(t: number, b: number, c: number, d: number) {
-  t /= d / 2;
-  if (t < 1) return (c / 2) * t * t + b;
-  t--;
-  return (-c / 2) * (t * (t - 2) - 1) + b;
-}
-
-onMouseEnterServices() {
+  /* ===========================
+       DESKTOP DROPDOWN
+  ============================*/
+  onMouseEnterServices() {
     this.clearDropdownTimer();
     this.dropdownOpen = true;
   }
@@ -76,7 +79,7 @@ onMouseEnterServices() {
   onMouseLeaveServices() {
     this.dropdownTimeout = setTimeout(() => {
       this.dropdownOpen = false;
-    }, 1000);
+    }, 800);
   }
 
   clearDropdownTimer() {
@@ -85,25 +88,35 @@ onMouseEnterServices() {
       this.dropdownTimeout = null;
     }
   }
+
   setActive(link: string) {
     this.activeLink = link;
     this.dropdownOpen = false;
     this.clearDropdownTimer();
   }
 
-  /* ========= MOBILE MENU ========= */
-
+  /* ===========================
+       MOBILE MENU
+  ============================*/
   toggleMobileMenu() {
     this.mobileMenuOpen = !this.mobileMenuOpen;
   }
 
   closeMobileMenu() {
     this.mobileMenuOpen = false;
+    this.mobileServicesOpen = false;
   }
 
+  toggleMobileServices() {
+    this.mobileServicesOpen = !this.mobileServicesOpen;
+  }
+
+  /* ===========================
+       CONTACT FORM
+  ============================*/
   sendmessage() {
     if (!this.name || !this.email || !this.message) {
-      alert('Please fill all fields');
+      alert('Please fill in all required fields');
       return;
     }
 
@@ -114,14 +127,13 @@ onMouseEnterServices() {
       message: this.message
     }).subscribe({
       next: () => {
-        alert('Message sent ✅');
+        alert('Message sent successfully ✅');
         this.name = '';
         this.email = '';
         this.company = '';
         this.message = '';
       },
-      error: () => alert('Failed ❌')
+      error: () => alert('Failed to send message ❌')
     });
   }
-  
 }

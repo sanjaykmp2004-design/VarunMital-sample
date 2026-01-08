@@ -69,7 +69,7 @@
 
     <!-- CTA Button -->
     <div class="navbar-cta">
-      <button class="cta-button">Get In Touch</button>
+      <button class="cta-button" (click)="scrollTo('contact')">Get In Touch</button>
     </div>
 
     <!-- Mobile Menu Toggle -->
@@ -87,11 +87,24 @@
   <div class="mobile-menu" [class.active]="mobileMenuOpen">
     <ul class="mobile-nav">
       <li><a routerLink="/" (click)="closeMobileMenu()">Home</a></li>
-      <li><a (click)="scrollTo('about'); closeMobileMenu()">About Us</a></li>
-      <li><a (click)="scrollTo('services'); closeMobileMenu()">Services</a></li>
-      <li><a (click)="scrollTo('resources'); closeMobileMenu()">Resources</a></li>
-      <li><a (click)="scrollTo('contact'); closeMobileMenu()">Contact Us</a></li>
-      <li><button class="cta-button mobile-cta">Get In Touch</button></li>
+      <li><a (click)="scrollTo('about')">About Us</a></li>
+      
+      <!-- Mobile Services Dropdown -->
+      <li class="mobile-dropdown">
+        <div class="mobile-services-header" (click)="toggleMobileServices()">
+          <span>Services</span>
+          <span class="arrow-icon" [class.rotate]="mobileServicesOpen">▼</span>
+        </div>
+        <ul class="mobile-submenu" [class.show]="mobileServicesOpen">
+          <li><a routerLink="/services" (click)="closeMobileMenu()">Actuarial Services</a></li>
+          <li><a routerLink="/assurance_services" (click)="closeMobileMenu()">Assurance Services</a></li>
+          <li><a routerLink="/other_services" (click)="closeMobileMenu()">Other Services</a></li>
+        </ul>
+      </li>
+      
+      <li><a (click)="scrollTo('resources')">Resources</a></li>
+      <li><a (click)="scrollTo('contact')">Contact Us</a></li>
+      <li><button class="cta-button mobile-cta" (click)="scrollTo('contact')">Get In Touch</button></li>
     </ul>
   </div>
 
@@ -124,7 +137,7 @@
     <div class="service-col text-col">
       <h2>IT Audits & Attestation</h2>
       <p class="para">
-       Our IT audit and attestation services are designed to evaluate the integrity, confidentiality, and availability of your information systems. We assess and verify the effectiveness of IT controls, ensuring alignment with industry standards and regulatory requirements. Our process enables clients to mitigate risks, improve operational efficiency, and maintain compliance with frameworks relevant to their sector.​ 
+       Our IT audit and attestation services are designed to evaluate the integrity, confidentiality, and availability of your information systems. We assess and verify the effectiveness of IT controls, ensuring alignment with industry standards and regulatory requirements. Our process enables clients to mitigate risks, improve operational efficiency, and maintain compliance with frameworks relevant to their sector.​ 
       </p>
     </div>
   </div>
@@ -134,14 +147,14 @@
     <div class="service1-col text-col" >
       <div id="s1">
       <h2>SOC 1, SOC 2, and SOC 3 Reporting</h2>
-      <p class="para">System and Organization Controls (SOC) reports are a cornerstone of trust in today’s business environment. </p>
+      <p class="para">System and Organization Controls (SOC) reports are a cornerstone of trust in today's business environment. </p>
       <ul class="para">
         <li >SOC 1 reports provide assurance over controls related to financial reporting for service organizations</li>
-        <li>SOC 2 reports evaluate controls pertaining to security, availability, processing integrity, confidentiality, and privacy.</li>
-        <li>SOC 3 reports offer a concise, publicly available summary of an organization’s controls/li>
+        <li>SOC 2 reports evaluate controls pertaining to security, availability, processing integrity, confidentiality, and privacy.</li>
+        <li>SOC 3 reports offer a concise, publicly available summary of an organization's controls</li>
       </ul>
       </div>
-      <p class="para">Our team ensures the reporting process is seamless and transparent, enabling organizations to demonstrate compliance and reinforce confidence among clients and regulatory bodies.​ </p>
+      <p class="para">Our team ensures the reporting process is seamless and transparent, enabling organizations to demonstrate compliance and reinforce confidence among clients and regulatory bodies.​ </p>
     </div>
 
     <div class="service1-col image1-col">
@@ -160,12 +173,12 @@
 
     <div class="iso-block">
       <h2>ISO 27001 Audits</h2>
-      <p class="para">We assist organizations in achieving and maintaining ISO 27001 certification, the global standard for information security management systems (ISMS). Our services include readiness assessments, internal audits, and certification support, helping clients establish robust security governance and continuous improvement practices.​ </p>
+      <p class="para">We assist organizations in achieving and maintaining ISO 27001 certification, the global standard for information security management systems (ISMS). Our services include readiness assessments, internal audits, and certification support, helping clients establish robust security governance and continuous improvement practices.​ </p>
     </div>
 
     <div class="iso-block">
       <h2>Data Privacy Compliances (GDPR, HIPAA, HITRUST)</h2>
-      <p class="para">ata privacy regulations impose significant responsibilities on organizations. We provide expert guidance and auditing in compliance with GDPR, HIPAA, and HITRUST, helping businesses safeguard sensitive information and maintain trust with stakeholders. Our tailored assessments identify potential gaps and recommend actionable improvements to enable ongoing compliance and risk management.​ /p>
+      <p class="para">Data privacy regulations impose significant responsibilities on organizations. We provide expert guidance and auditing in compliance with GDPR, HIPAA, and HITRUST, helping businesses safeguard sensitive information and maintain trust with stakeholders. Our tailored assessments identify potential gaps and recommend actionable improvements to enable ongoing compliance and risk management.​ </p>
     </div>
 
   </div>
@@ -178,14 +191,6 @@
 
 </section>
 
-<!-- BRAND LOGOS -->
-<section class="brands-section" id="resources">
-  <div class="social_logo">
-    <img src="/assets/logo social.svg" alt="Social Logos">
-  </div>
-</section>
-
-<!-- CONTACT Section -->
 <div class="section-wrapper" id="contact">
 
   <div class="info-block">
@@ -194,21 +199,26 @@
       </p><p class="para">
  Connect with our team to discover smarter business growth opportunities.</p>
 
-    <div class="brand-area">
-      <img src="/assets/assurion_logo.svg" alt="Shield Logo">
+  <div class="brand-area">
+      <img src="assets/assurion final logo.svg">
     </div>
+    <br>
+    <br>  
+    
+    <span style="color: white;">Phone &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; + 1 307 6838062</span>
+        <div class="country-bar">
+      <div class="country">
+        <span>Address &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span> 
+        <img src="assets/indianflag.svg">
+        <span > New Delhi ,<br> India</span>
+        
+      </div>
 
-    <div class="country-bar">
-    <div class="country">
-      <img src="assets/indianflag.svg" alt="India">
-      <span>India</span>
+      <div class="country">
+        <img src="assets/usa flag.svg">
+        <span>Wyoming, <br> United   States</span>
+      </div>
     </div>
-
-    <div class="country">
-      <img src="assets/usa flag.svg" alt="USA">
-      <span>USA</span>
-    </div>
-  </div>
   </div>
 
   <div class="form-box">
@@ -226,9 +236,9 @@
 <!-- FOOTER -->
 <footer class="site-footer">
   <div class="footer-links">
-    <a (click)="scrollTo('services')">home</a>
-    <a href="#">About us</a>
-      <a href="#">Services</a>
+    <a (click)="scrollTo('home')">Home</a>
+    <a (click)="scrollTo('about')">About us</a>
+    <a (click)="scrollTo('services')">Services</a>
     <a href="#">Privacy Policy</a>
   </div>
 

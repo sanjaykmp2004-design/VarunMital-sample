@@ -24,6 +24,7 @@ export class AssuranceServices {
   // Dropdown hover state
   dropdownOpen: boolean = false;
   private dropdownTimer: any = null;
+  mobileServicesOpen: boolean = false;  
 
   name = '';
   email = '';
@@ -107,6 +108,7 @@ export class AssuranceServices {
 
   closeMobileMenu() {
     this.mobileMenuOpen = false;
+    this.mobileServicesOpen = false; 
   }
 
   /* ====================================================
@@ -133,5 +135,8 @@ export class AssuranceServices {
       },
       error: () => alert('Failed to send message')
     });
+  }
+   toggleMobileServices() {  // ADD THIS METHOD
+    this.mobileServicesOpen = !this.mobileServicesOpen;
   }
 }

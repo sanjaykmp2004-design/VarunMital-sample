@@ -22,8 +22,11 @@ export class OtherServices {
   dropdownOpen: boolean = false;
   dropdownTimer: any;
 
+  // Mobile menu states
   mobileMenuOpen: boolean = false;
+  mobileServicesOpen: boolean = false;
 
+  // Form fields
   name = '';
   email = '';
   company = '';
@@ -51,10 +54,15 @@ export class OtherServices {
 
   closeMobileMenu() {
     this.mobileMenuOpen = false;
+    this.mobileServicesOpen = false;
+  }
+
+  toggleMobileServices() {
+    this.mobileServicesOpen = !this.mobileServicesOpen;
   }
 
   /* ===========================
-        DROPDOWN (HOME-LIKE)
+        DROPDOWN (DESKTOP)
   ============================*/
   openDropdown() {
     this.clearTimer();
@@ -73,36 +81,40 @@ export class OtherServices {
 
   selectService() {
     this.dropdownOpen = false;
+    this.activeLink = 'services';
   }
 
   /* ===========================
        SMOOTH SCROLL
   ============================*/
- scrollTo(sectionId: string) {
-  const target = document.getElementById(sectionId);
-  if (!target) return;
+  scrollTo(sectionId: string, duration: number = 600) {
+    const target = document.getElementById(sectionId);
+    if (!target) return;
 
-  const start = window.pageYOffset;
-  const end = target.getBoundingClientRect().top;
-  const duration = 700;
-  const startTime = performance.now();
+    const start = window.pageYOffset;
+    const targetOffset = target.getBoundingClientRect().top;
+    const startTime = performance.now();
 
-  const animate = (now: number) => {
-    const progress = Math.min((now - startTime) / duration, 1);
-    const ease = progress < 0.5
-      ? 2 * progress * progress
-      : -1 + (4 - 2 * progress) * progress;
+    const easeInOut = (t: number) =>
+      t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
 
-    window.scrollTo(0, start + end * ease);
+    const animateScroll = (currentTime: number) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const ease = easeInOut(progress);
 
-    if (progress < 1) requestAnimationFrame(animate);
-  };
+      window.scrollTo(0, start + targetOffset * ease);
 
-  requestAnimationFrame(animate);
+      if (progress < 1) {
+        requestAnimationFrame(animateScroll);
+      }
+    };
 
-  this.activeLink = sectionId;
-  this.closeMobileMenu();
-}
+    requestAnimationFrame(animateScroll);
+
+    this.activeLink = sectionId;
+    this.closeMobileMenu();
+  }
 
   /* ===========================
        PARTICLES
@@ -125,7 +137,7 @@ export class OtherServices {
   ============================*/
   sendmessage() {
     if (!this.name || !this.email || !this.message) {
-      alert("Please fill in all fields");
+      alert("Please fill in all required fields");
       return;
     }
 
@@ -145,5 +157,4 @@ export class OtherServices {
       error: () => alert("Failed to send message")
     });
   }
-
 }

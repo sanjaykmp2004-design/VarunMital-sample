@@ -14,9 +14,10 @@ import { RouterLink } from '@angular/router';
 export class Home {
 
   activeLink: string = 'home';
-  mobileMenuOpen: boolean = false;
 
-  // Dropdown state
+  mobileMenuOpen: boolean = false;
+  mobileServicesOpen: boolean = false;
+
   dropdownOpen: boolean = false;
   private dropdownTimeout: any = null;
 
@@ -31,39 +32,37 @@ export class Home {
     this.generateParticles();
   }
 
-  /* ========= NAVIGATION ========= */
+  /* =====================
+     NAVIGATION
+     ===================== */
 
- scrollTo(sectionId: string, duration: number = 600) {
-  const target = document.getElementById(sectionId);
-  if (!target) return;
+  scrollTo(sectionId: string, duration: number = 600) {
+    const target = document.getElementById(sectionId);
+    if (!target) return;
 
-  const startPosition = window.pageYOffset;
-  const targetPosition = target.getBoundingClientRect().top;
-  const startTime = performance.now();
+    const startPosition = window.pageYOffset;
+    const targetPosition = target.getBoundingClientRect().top;
+    const startTime = performance.now();
 
-  const animateScroll = (currentTime: number) => {
-    const timeElapsed = currentTime - startTime;
-    const progress = Math.min(timeElapsed / duration, 1);
+    const animateScroll = (currentTime: number) => {
+      const timeElapsed = currentTime - startTime;
+      const progress = Math.min(timeElapsed / duration, 1);
 
-    // Easing for smooth movement
-    const ease = progress < 0.5  
-      ? 2 * progress * progress  
-      : -1 + (4 - 2 * progress) * progress;
+      const ease = progress < 0.5
+        ? 2 * progress * progress
+        : -1 + (4 - 2 * progress) * progress;
 
-    window.scrollTo(0, startPosition + targetPosition * ease);
+      window.scrollTo(0, startPosition + targetPosition * ease);
 
-    if (timeElapsed < duration) {
-      requestAnimationFrame(animateScroll);
-    }
-  };
+      if (timeElapsed < duration) {
+        requestAnimationFrame(animateScroll);
+      }
+    };
 
-  requestAnimationFrame(animateScroll);
-
-  this.activeLink = sectionId;
-  this.closeMobileMenu();
-}
-
-
+    requestAnimationFrame(animateScroll);
+    this.activeLink = sectionId;
+    this.closeMobileMenu();
+  }
 
   setActive(link: string) {
     this.activeLink = link;
@@ -71,7 +70,9 @@ export class Home {
     this.clearDropdownTimer();
   }
 
-  /* ========= DROPDOWN ========= */
+  /* =====================
+     DESKTOP SERVICES DROPDOWN
+     ===================== */
 
   onMouseEnterServices() {
     this.clearDropdownTimer();
@@ -91,19 +92,34 @@ export class Home {
     }
   }
 
-  /* ========= MOBILE MENU ========= */
+  /* =====================
+     MOBILE MENU
+     ===================== */
 
   toggleMobileMenu() {
     this.mobileMenuOpen = !this.mobileMenuOpen;
+
+    // Close services submenu when main menu closes
+    if (!this.mobileMenuOpen) {
+      this.mobileServicesOpen = false;
+    }
+  }
+
+  toggleMobileServices() {
+    this.mobileServicesOpen = !this.mobileServicesOpen;
   }
 
   closeMobileMenu() {
     this.mobileMenuOpen = false;
+    this.mobileServicesOpen = false;
   }
 
-  /* ========= PARTICLES ========= */
+  /* =====================
+     PARTICLES
+     ===================== */
 
   generateParticles() {
+    this.particles = [];
     for (let i = 0; i < 15; i++) {
       this.particles.push({
         x: Math.random() * window.innerWidth,
@@ -116,7 +132,9 @@ export class Home {
     return i;
   }
 
-  /* ========= CONTACT FORM ========= */
+  /* =====================
+     CONTACT FORM
+     ===================== */
 
   sendmessage() {
     if (!this.name || !this.email || !this.message) {
