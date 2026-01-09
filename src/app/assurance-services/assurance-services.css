@@ -247,3 +247,439 @@ html, body {
     margin-top: 40px;
   }
 }
+/* ===============================
+   MOBILE RESPONSIVE STYLES
+   Add these to your existing CSS
+   =============================== */
+
+/* Tablet and Mobile - 768px and below */
+@media (max-width: 768px) {
+  
+  /* Service Hero Section */
+  .service-hero {
+    height: 300px;
+    padding: 20px;
+  }
+
+  .service-hero-container {
+    padding: 0 1.5rem;
+  }
+
+  .service-title {
+    font-size: 1.8rem;
+    margin-right: 0;
+    margin-top: 50px;
+    text-align: left;
+  }
+
+  .breadcrumb {
+    justify-content: flex-start;
+    margin-top: 40px;
+    font-size: 0.85rem;
+  }
+
+  /* Service Section */
+  .service-section {
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+    gap: 3rem;
+  }
+
+  .service-row {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .service-col,
+  .service1-col {
+    width: 100%;
+  }
+
+  .service-img {
+    width: 100%;
+    height: auto;
+    max-height: 250px;
+    margin-left: 0;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .text-col h2,
+  .service-content h2 {
+    font-size: 1.5rem;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .text-col p,
+  .text-col ul,
+  .service-content p,
+  .service-content ul {
+    margin-left: 0;
+    font-size: 0.95rem;
+    text-align: left;
+    padding: 0 1rem;
+  }
+
+  .text-col ul,
+  .service-content ul {
+    padding-left: 2rem;
+  }
+
+  #s1 {
+    margin-bottom: 1.5rem;
+  }
+
+  .image1-col,
+  .second_img {
+    order: -1;
+  }
+
+  /* ISO Section */
+  .iso-section {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    height: auto;
+    padding: 3rem 1.5rem;
+    margin: 3rem auto;
+  }
+
+  .iso-left {
+    margin-left: 0;
+    gap: 2rem;
+  }
+
+  .iso-block h2 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .iso-block p {
+    font-size: 0.95rem;
+    text-align: center;
+  }
+
+  .iso-right {
+    display: flex;
+    justify-content: center;
+    order: -1;
+  }
+
+  .circle-wrapper {
+    width: 280px;
+    height: 280px;
+  }
+
+  /* Contact Section */
+  .section-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 40px 25px;
+  }
+
+  .info-block {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .info-block h1 {
+    font-size: 1.75rem;
+    line-height: 1.3;
+  }
+
+  .info-block p {
+    font-size: 13px;
+    max-width: 100%;
+    line-height: 1.8;
+  }
+
+  .brand-area {
+    justify-content: flex-start;
+    margin-bottom: 15px;
+  }
+
+  .brand-area img {
+    max-width: 150px;
+    height: auto;
+  }
+
+  /* Phone info */
+  .info-block > span {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 25px;
+    margin-top: 15px;
+  }
+
+  /* Country bar - vertical layout */
+  .country-bar {
+    flex-direction: column;
+    height: auto;
+    gap: 25px;
+    padding: 20px;
+    align-items: flex-start;
+    background-color: transparent;
+  }
+
+  .country {
+    width: 100%;
+    font-size: 14px;
+    gap: 12px;
+  }
+
+  .country img {
+    width: 28px;
+    height: 28px;
+    border: 2px solid white;
+  }
+
+  /* Form box */
+  .form-box {
+    margin-right: 0;
+    margin-top: 30px;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    padding: 25px;
+  }
+
+  .form-box input,
+  .form-box textarea {
+    font-size: 14px;
+  }
+
+  .form-box button {
+    font-size: 15px;
+    padding: 12px;
+  }
+
+  /* Footer */
+  .footer-links {
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
+    font-size: 13px;
+  }
+
+  .footer-copy {
+    font-size: 11px;
+  }
+}
+
+/* Small Mobile - 480px and below */
+@media (max-width: 480px) {
+  
+  /* Hero Section */
+  .service-hero {
+    height: 250px;
+  }
+
+  .service-hero-container {
+    padding: 0 1rem;
+  }
+
+  .service-title {
+    font-size: 1.5rem;
+    margin-top: 40px;
+  }
+
+  .breadcrumb {
+    margin-top: 30px;
+    font-size: 0.75rem;
+    gap: 5px;
+  }
+
+  /* Service Section */
+  .service-section {
+    margin: 1.5rem auto;
+    padding: 0 1rem;
+    gap: 2.5rem;
+  }
+
+  .service-img {
+    max-height: 200px;
+  }
+
+  .text-col h2,
+  .service-content h2 {
+    font-size: 1.3rem;
+  }
+
+  .text-col p,
+  .text-col ul,
+  .service-content p,
+  .service-content ul {
+    font-size: 0.9rem;
+    padding: 0 0.5rem;
+  }
+
+  .text-col ul li,
+  .service-content ul li {
+    font-size: 0.85rem;
+  }
+
+  /* ISO Section */
+  .iso-section {
+    padding: 2rem 1rem;
+    margin: 2rem auto;
+    gap: 1.5rem;
+  }
+
+  .iso-left {
+    gap: 1.5rem;
+  }
+
+  .iso-block h2 {
+    font-size: 1.3rem;
+  }
+
+  .iso-block p {
+    font-size: 0.9rem;
+  }
+
+  .circle-wrapper {
+    width: 220px;
+    height: 220px;
+    padding: 8px;
+  }
+
+  /* Contact Section */
+  .section-wrapper {
+    padding: 30px 20px;
+  }
+
+  .info-block h1 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .info-block p {
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .brand-area {
+    justify-content: center;
+  }
+
+  .brand-area img {
+    max-width: 120px;
+  }
+
+  .info-block > span {
+    font-size: 13px;
+    text-align: center;
+  }
+
+  .country-bar {
+    gap: 20px;
+    padding: 15px;
+  }
+
+  .country {
+    font-size: 13px;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .country img {
+    width: 26px;
+    height: 26px;
+  }
+
+  .form-box {
+    padding: 20px;
+  }
+
+  .form-box input,
+  .form-box textarea {
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  .form-box button {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  /* Footer */
+  .footer-links {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .footer-links a {
+    font-size: 12px;
+  }
+
+  .footer-copy {
+    font-size: 10px;
+  }
+}
+
+/* Medium screens - 900px and below for service images */
+@media (max-width: 900px) {
+  .service-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .service-img {
+    height: auto;
+    max-height: 280px;
+  }
+}
+
+/* Landscape Mobile Optimization */
+@media (max-width: 768px) and (orientation: landscape) {
+  .service-hero {
+    height: 80vh;
+  }
+
+  .service-title {
+    font-size: 1.6rem;
+  }
+
+  .breadcrumb {
+    margin-top: 30px;
+  }
+
+  .iso-section {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .circle-wrapper {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 360px) {
+  .service-title {
+    font-size: 1.3rem;
+  }
+
+  .breadcrumb {
+    font-size: 0.7rem;
+  }
+
+  .text-col h2,
+  .service-content h2 {
+    font-size: 1.2rem;
+  }
+
+  .iso-block h2 {
+    font-size: 1.2rem;
+  }
+
+  .circle-wrapper {
+    width: 180px;
+    height: 180px;
+  }
+
+  .info-block h1 {
+    font-size: 1.3rem;
+  }
+}

@@ -101,7 +101,6 @@
           <li><a routerLink="/other_services" (click)="closeMobileMenu()">Other Services</a></li>
         </ul>
       </li>
-      
       <li><a (click)="scrollTo('resources')">Resources</a></li>
       <li><a (click)="scrollTo('contact')">Contact Us</a></li>
       <li><button class="cta-button mobile-cta" (click)="scrollTo('contact')">Get In Touch</button></li>
@@ -199,29 +198,25 @@
       </p><p class="para">
  Connect with our team to discover smarter business growth opportunities.</p>
 
-  <div class="brand-area">
-      <img src="assets/assurion final logo.svg">
+    <div class="brand-area">
+      <img src="assets/assurion final logo.svg" alt="Shield Logo">
     </div>
-    <br>
-    <br>  
-    
-    <span style="color: white;">Phone &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; + 1 307 6838062</span>
+<span style="color: white;">Phone &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; + 1 307 6838062</span>
         <div class="country-bar">
       <div class="country">
-        <span>Address &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span> 
+        <span>Address &nbsp;&nbsp;&nbsp;&nbsp;  :</span> 
         <img src="assets/indianflag.svg">
         <span > New Delhi ,<br> India</span>
         
-      </div>
+     
 
-      <div class="country">
+      
         <img src="assets/usa flag.svg">
         <span>Wyoming, <br> United   States</span>
       </div>
     </div>
   </div>
-
-  <div class="form-box">
+<div class="form-box">
     <form (ngSubmit)="sendmessage()" #contactForm="ngForm">
       <input type="text" placeholder="Name" [(ngModel)]="name" name="name" required>
       <input type="email" placeholder="Email" [(ngModel)]="email" name="email" required>
@@ -241,12 +236,9 @@
     <a (click)="scrollTo('services')">Services</a>
     <a href="#">Privacy Policy</a>
   </div>
-
   <hr class="footer-divider">
-
   <div class="footer-copy">
     © Powered by techysmiles
   </div>
 </footer>
-
 </section>
